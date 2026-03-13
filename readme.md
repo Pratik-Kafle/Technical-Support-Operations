@@ -163,11 +163,11 @@ ORDER BY high_priority_tickets DESC;
 * **Answer:** Product setup (3.4) and Training Request (3.46).
 ```sql
 SELECT
-       INITCAP(topic) AS clean_topic,
+       topic AS clean_topic,
        ROUND(AVG(survey_results),2) AS avg_results
 FROM
        technical_support
-GROUP BY clean_topic
+GROUP BY topic
 ORDER BY avg_results ASC;
 ```
 

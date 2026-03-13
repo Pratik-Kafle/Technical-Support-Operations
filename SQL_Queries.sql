@@ -13,7 +13,7 @@ SELECT
 FROM
 	technical_support;
 	
--- Average resolution time (Hours) - CORRECT METHOD
+-- Average resolution time (Hours)
 SELECT 
     ROUND(AVG(EXTRACT(EPOCH FROM (resolution_time - created_time))/3600), 2) as avg_resolution_hours
 FROM 
@@ -114,11 +114,11 @@ ORDER BY high_priority_tickets DESC;
 
 -- 8.Which specific Topic consistently gets low Survey results?
 SELECT
-	INITCAP(topic) AS clean_topic,
+	topic,
 	ROUND(AVG(survey_results),2) AS avg_results
 FROM
 	technical_support
-GROUP BY clean_topic
+GROUP BY topic
 ORDER BY avg_results ASC;
 
 
